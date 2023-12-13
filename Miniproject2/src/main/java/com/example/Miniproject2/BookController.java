@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class BookController {
     @Autowired
     private BookH2Service bookH2Service;
-    BookService bookService= new BookService();
+
     @GetMapping("/books")
     public ArrayList<Book> getAllBooks(){
         return bookH2Service.getBooks();
@@ -26,6 +26,7 @@ public class BookController {
 
     @PostMapping("/books")
     public Book addBook(@RequestBody Book book){
+
         return bookH2Service.addBook(book);
     }
 
@@ -36,6 +37,7 @@ public class BookController {
 
     @DeleteMapping("books/{bookId}")
     public void deleteBook(@PathVariable("bookId") int bookId){
+
         bookH2Service.deleteBook(bookId);
     }
 
